@@ -1,13 +1,14 @@
 import psycopg2
+import config
 
 # Connect to postgre
 def todbConn():
     return psycopg2.connect(
-        dbname='people_data_prod',
-        host='people-data-postgre.c18rznrwwovz.us-east-1.rds.amazonaws.com',
-        port='5432',
-        user='sys_admin',
-        password='PeopleTeam1981'
+        dbname=config['PostGre']['database'],
+        host=config['PostGre']['host'],
+        port=config['PostGre']['port'],
+        user=config['PostGre']['user'],
+        password=config['PostGre']['password']
     )
 
 #creating schema and table if they don't exist
